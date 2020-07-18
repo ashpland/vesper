@@ -1,0 +1,2 @@
+repl:
+	clojure -A:dev
