@@ -7,7 +7,6 @@
    [vesper.config :as config]
    ))
 
-
 (js/console.log "Hello vesper")
 
 (defn dev-setup []
