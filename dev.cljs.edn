@@ -1,0 +1,9 @@
+^{ ;;:css-dirs ["resources/public/css"]
+  :watch-dirs ["src"]
+  ;;:open-url false
+  }
+{:main vesper.core
+ :output-to "resources/public/js/main.js"
+ :output-dir "resources/public/js/out"
+ :asset-path "js/out"
+ :optimizations :none}
