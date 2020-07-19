@@ -1,9 +1,13 @@
 (ns vesper.db
   (:require
-   [vesper.chat :as chat]))
+   [re-frame.core :as rf]))
 
 (def default-db
   {:name "re-frame"
-   :all-recepients #{"Mom" "Dad" "Grandma" "Grandpa"}
-   ; ::chat/messages [chat/example-message]
+   :vesper.recepient/all-recepients #{"Mom" "Dad" "Grandma" "Grandpa"}
    })
+
+(rf/reg-event-db
+ ::initialize-db
+ (fn [_ _]
+   default-db))
