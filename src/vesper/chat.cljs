@@ -2,7 +2,8 @@
   (:require
    [reagent.core :as reagent]
    [re-frame.core :as rf]
-   [vesper.helpers :as h]))
+   [vesper.helpers :as h]
+   [vesper.recepient :as recepient]))
 
 (def example-message
   {:value "Hello World"
@@ -39,12 +40,15 @@
 
 (defn ChatView
   []
-  (let [*messages (rf/subscribe [::messages])]
+  (let [*recepient (rf/subscribe [::recepient/current-recepient])
+        *messages (rf/subscribe [::messages])]
     (fn []
       (let [messages @*messages]
+        [:div
+        [:h3 "Dear " @*recepient]
         [:div
          (when messages
            (for [{:keys [timestamp] :as message} messages]
              ^{:key timestamp}
              [Message message]))
-         [Compose]]))))
+         [Compose]]]))))

@@ -4,7 +4,8 @@
 
 (def default-db
   {:name "re-frame"
-   :vesper.recepient/all-recepients #{"Mom" "Dad" "Grandma" "Grandpa"}})
+   :vesper.recepient/all-recepients #{"Mom" "Dad" "Grandma" "Grandpa"}
+   :vesper.state/state :vesper.state/intro})
 
 (rf/reg-event-db
  ::initialize-db
