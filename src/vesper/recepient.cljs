@@ -1,8 +1,7 @@
 (ns vesper.recepient
   (:require
    [re-frame.core :as rf]
-   [vesper.helpers :as h]
-   ))
+   [vesper.helpers :as h]))
 
 (rf/reg-event-db
  ::set-recepient
@@ -34,5 +33,4 @@
           [:option]
           (for [recepient (sort @*recepients)]
             ^{:key recepient}
-            [:option recepient]
-            )]]]])))
+            [:option recepient])]]]])))

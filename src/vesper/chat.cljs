@@ -2,8 +2,7 @@
   (:require
    [reagent.core :as reagent]
    [re-frame.core :as rf]
-   [vesper.helpers :as h]
-   ))
+   [vesper.helpers :as h]))
 
 (def example-message
   {:value "Hello World"
@@ -28,12 +27,11 @@
                            (.preventDefault e)
                            (rf/dispatch [::new-message @*new-message])
                            (reset! *new-message ""))}
-      [:input {:value @*new-message
-               :on-change (fn [e]
-                            (->> e
-                                 h/event->value
-                                 (reset! *new-message)))}]]
-      )))
+       [:input {:value @*new-message
+                :on-change (fn [e]
+                             (->> e
+                                  h/event->value
+                                  (reset! *new-message)))}]])))
 
 (defn Message
   [{:keys [value]}]
@@ -46,9 +44,7 @@
       (let [messages @*messages]
         [:div
          (when messages
-             (for [{:keys [timestamp] :as message} messages]
-                 ^{:key timestamp}
-                 [Message message]
-                 ))
-         [Compose]
-         ]))))
+           (for [{:keys [timestamp] :as message} messages]
+             ^{:key timestamp}
+             [Message message]))
+         [Compose]]))))

@@ -1,4 +1,4 @@
-{:paths   ["src"]
+{:paths   ["src" "resources"]
 
  :deps    {com.taoensso/timbre {:mvn/version "4.10.0"}
            org.clojure/clojure {:mvn/version "1.10.1"}
@@ -7,25 +7,14 @@
 
  :aliases {:prod {:main-opts ["-m cljs.main -co prod.cljs.edn -c vesper.core"]}
 
-           :dev {
-
-                 :extra-paths ["dev" "resources"]
-
-                 :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.6"}
-                              cider/cider-nrepl         {:mvn/version "0.22.3"}
-                              cider/piggieback          {:mvn/version "0.4.1"}
-                              nrepl/nrepl               {:mvn/version "0.6.0"}}
+           :dev {:extra-paths ["dev"]
+                 :extra-deps {com.bhauman/figwheel-main       {:mvn/version "0.2.10"}
+                              cider/cider-nrepl               {:mvn/version "0.22.3"}
+                              cider/piggieback                {:mvn/version "0.4.1"}
+                              cljfmt                          {:mvn/version "0.6.4"}
+                              nrepl/nrepl                     {:mvn/version "0.6.0"}}
                  :main-opts ["--main" "nrepl.cmdline"
                              "--interactive"
-                             "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
+                             "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}}
 
-           :figwheel {:extra-paths ["resources"]
-                      :extra-deps {com.bhauman/figwheel-main {:mvn/version "0.2.6"}}
-                      :main-opts ["-m figwheel.main -b dev -r"]}
-
-
-
-
-
-
-           }}
+ }

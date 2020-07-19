@@ -4,8 +4,7 @@
    [re-frame.core :as re-frame]
    [vesper.db :as db]
    [vesper.views :as views]
-   [vesper.config :as config]
-   ))
+   [vesper.config :as config]))
 
 (js/console.log "Hello vesper")
 
